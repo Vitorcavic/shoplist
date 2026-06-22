@@ -144,7 +144,6 @@ form {
 }
 
 .alert {
-    display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 2.25rem;
@@ -152,6 +151,10 @@ form {
     padding: .75rem;
     border-radius: .75rem;
     height: 2.75rem;
+
+    &:not([hidden]) {
+        display: flex;
+    }
 
     & .alert-content {
         display: flex;
