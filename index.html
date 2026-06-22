@@ -3,10 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Compras</title>
-    <style src="style.css"></style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <title>Compras da Semana</title>
 </head>
 <body>
+    <main>
+        <img src="assets/logo.svg" alt="Logo" class="desktop-only">
+
+        <header>
+            <a href="#">
+                <img src="assets/back.svg" alt="Botão de voltar">
+            </a>
+            <h1>Compras da Semana</h1>
+        </header>
+
+        <form>
+            <input type="text" id="input" placeholder="Adicione um novo item">
+            <button type="submit">Adicionar item</button>
+        </form>
+
+        <div class="items-list">
+            <ul>
+                <li class="item">
+                    <div class="item-content">
+                        <div class="checkbox-img"></div>
+                        <input type="checkbox" name="item" id="item">
+                        <span>Pão de forma</span>
+                    </div>
+                    <button type="button" class="remove-item">
+                        <img src="assets/garbage.svg" alt="Remover item">
+                    </button>
+                </li>
+                <li class="item">
+                    <div class="item-content">
+                        <div class="checkbox-img"></div>
+                        <input type="checkbox" name="item" id="item">
+                        <span>Café preto</span>
+                    </div>
+                    <button type="button" class="remove-item">
+                        <img src="assets/garbage.svg" alt="Remover item">
+                    </button>
+                </li>
+                <li class="item">
+                    <div class="item-content">
+                        <div class="checkbox-img"></div>
+                        <input type="checkbox" name="item" id="item">
+                        <span>Suco de laranja</span>
+                    </div>
+                    <button type="button" class="remove-item">
+                        <img src="assets/garbage.svg" alt="Remover item">
+                    </button>
+                </li>
+                <li class="item">
+                    <div class="item-content">
+                        <div class="checkbox-img"></div>
+                        <input type="checkbox" name="item" id="item">
+                        <span>Bolacha</span>
+                    </div>
+                    <button type="button" class="remove-item">
+                        <img src="assets/garbage.svg" alt="Remover item">
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="alert" >
+            <div class="alert-content">
+                <img src="assets/alert.svg" alt="">
+                <span>O item foi removido da lista</span>
+            </div>
+            <button type="submit">
+                <img src="assets/x.svg" alt="Ícone de X para fechar alerta">
+            </button>
+        </div>
+    </main>
 
 <script src="scripts.js"></script>
 </body>
