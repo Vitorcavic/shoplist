@@ -1,18 +1,18 @@
-const form = document.querySelector('form');
-const input = document.querySelector('#input');
-const list = document.querySelector('.items-list ul');
+const form = document.querySelector('form')
+const input = document.querySelector('#input')
+const list = document.querySelector('.items-list ul')
 const alert = document.querySelector(".alert")
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    const value = input.value.trim();
+    const value = input.value.trim()
     if (value === '') {
         return;
     }
 
-    const newItem = document.createElement('li');
-    newItem.classList.add("item");
+    const newItem = document.createElement('li')
+    newItem.classList.add("item")
     newItem.innerHTML = `
         <div class="item-content">
             <div class="checkbox-img"></div>
@@ -24,8 +24,8 @@ form.addEventListener('submit', (event) => {
         </button>
     `;
 
-    list.appendChild(newItem);
-    input.value = '';
+    list.appendChild(newItem)
+    input.value = ''
     input.focus()
 });
 
