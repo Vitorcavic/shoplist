@@ -59,7 +59,7 @@ list.addEventListener('click', (event) => {
 list.addEventListener('change', (event) => {
     if (event.target.matches('input[type="checkbox"]')) {
         const item = event.target.closest(".item")
-        item.style.border = event.target.checked ? "1px solid #CA3884" : "none"
+        item.style.outline = event.target.checked ? "1px solid #CA3884" : "none"
         const span = item.querySelector("span")
         span.style.textDecorationLine = event.target.checked ? "line-through" : "none"
         saveList()
