@@ -17,6 +17,8 @@ Este projeto demonstra uma simples lista de compras onde você pode adicionar, m
 
 1. Abra o arquivo `index.html` no seu navegador.
 
+2. Acesse `https://vitorcavic.github.io/shoplist/` no seu navegador.
+
 Ou, se preferir usar um servidor local (recomendado para desenvolvimento):
 
 ```bash
