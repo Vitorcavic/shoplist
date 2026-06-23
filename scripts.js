@@ -2,6 +2,11 @@ const form = document.querySelector('form')
 const input = document.querySelector('#input')
 const list = document.querySelector('.items-list ul')
 const alert = document.querySelector(".alert")
+const closeAlert = document.querySelector(".close-msg")
+
+closeAlert.addEventListener('click', () => {
+    alert.hidden = true
+})
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -26,7 +31,7 @@ form.addEventListener('submit', (event) => {
 
     list.appendChild(newItem)
     input.value = ''
-    input.focus()
+    saveList()
 });
 
 list.addEventListener('click', (event) => {
@@ -42,12 +47,52 @@ list.addEventListener('click', (event) => {
     alertText.textContent = `O item '${itemName}' foi removido da lista`
 
     item.remove()
+    saveList()
 
     alert.hidden = false
+})
 
-    const closeAlert = document.querySelector(".close-msg")
+list.addEventListener('change', (event) => {
+    if (event.target.matches('input[type="checkbox"]')) {
+        saveList()
+    }
+})
 
-    closeAlert.addEventListener('click', () => {
-        alert.hidden = true
+function saveList() {
+    const itens = [];
+
+    document.querySelectorAll(".item").forEach(item => {
+        itens.push({
+            nome: item.querySelector("span").textContent,
+            concluido: item.querySelector('input[type="checkbox"]').checked
+        })
     })
+    localStorage.setItem("lista", JSON.stringify(itens))
+}
+
+function restoreList() {
+    const savedItens = JSON.parse(localStorage.getItem("lista"))
+
+    if (savedItens === null) return
+
+    savedItens.forEach(item => {
+        list.innerHTML += `
+        <li class="item">
+            <div class="item-content">
+                <div class="checkbox-img"></div>
+                <input type="checkbox" name="item"
+                    ${item.concluido ? "checked" : ""}
+                >
+                <span>${item.nome}</span>
+            </div>
+            <button type="button" class="remove-item">
+                <img src="assets/garbage.svg" alt="Remover item">
+            </button>
+        </li>
+        `
+    })
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    restoreList()
 })
